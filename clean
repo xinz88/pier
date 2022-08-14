@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Created on Sun Aug 14 2022
+# Copyright (c) 2022 - xinz@88.com
+
+
+# $1 - cleaning target: lib or bin
+
+ROOT_DIR=$(pwd)
+
+# help clean all output products from lib
+# input ${LIB_DIRS} from Makefile
+function clean_libs() {
+    for LIB_DIR in ${LIB_DIRS}
+    do
+        cd ${ROOT_DIR}
+        cd ${LIB_DIR}
+        cargo clean
+        if [ -f "Cargo.lock" ]; then
+            rm Cargo.lock
+        fi
+    done
+}
+
+# help clean all output products from bin
+# input ${BIN_DIRS} from Makefile
+function clean_bins() {
+    for BIN_DIR in ${BIN_DIRS}
+    do
+        cd ${ROOT_DIR}
+        cd ${BIN_DIR}
+        cargo clean
+    done
+}
+
+
+if [[ "lib" == "$1" ]]; then
+    clean_libs
+fi
+
+if [[ "bin" == "$1" ]]; then
+    clean_bins
+fi

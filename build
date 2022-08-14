@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Created on Sun Aug 14 2022
+# Copyright (c) 2022 - xinz@88.com
+
+# $1 - build target: lib or bin
+
+ROOT_DIR=$(pwd)
+
+# help build all libs
+# input ${LIB_DIRS} from Makefile
+function build_libs() {
+    for LIB_DIR in ${LIB_DIRS}
+    do
+        cd ${ROOT_DIR}
+        cd ${LIB_DIR}
+        cargo build
+    done
+}
+
+# help build all bins
+# input ${BIN_DIRS} from Makefile
+function build_bins() {
+    for BIN_DIR in ${BIN_DIRS}
+    do
+        cd ${ROOT_DIR}
+        cd ${BIN_DIR}
+        cargo build
+    done
+}
+
+
+if [[ "lib" == "$1" ]]; then
+    build_libs
+fi
+
+if [[ "bin" == "$1" ]]; then
+    build_bins
+fi
