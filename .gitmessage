@@ -1,0 +1,37 @@
+
+# commit message needs to follow the following rules
+
+# <type>: <title> {must}
+#
+# <body> {optional}
+#
+# <footer> {optional}
+#
+# example:
+# feat: implementation of something
+#
+# more details commentted here
+#
+# Closes PROJECT-1
+#
+# <type>:
+#       feat: add new feature
+#       fix: fix bug
+#       doc: modify the documentation
+#       style: modify the style of code
+#       refactor: refactor functionality or architecture
+#       perf: optimize performance
+#       test: add code for test
+#       build: modify build tools
+#       3rd: third-part code
+#       other: something not well categorized
+#
+# <title>:
+#       used to briefly outline this change
+#
+# <body>:
+#       more details for this change
+#
+# <footer>:
+#       close specific issues using Closes PROJECT-1
+#
